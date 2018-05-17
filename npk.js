@@ -29,10 +29,12 @@ function transform(vec) {
 function transform2(vec) {
   let mat = [ [ 0.0, -2 ],
               [ 0.8, 0.2 ] ];
+  
+  let smallSine = 0.06 * Math.sin(0.08 * vec.x);
 
   return new Vector (
     mat[0][0] * vec.x +  mat[0][1] * vec.y,
-    140 * ( Math.sin(10 * mat[1][0] * vec.x) + Math.sin(0.02 * vec.x)) + 4 * mat[1][1] * vec.y);
+      140 * ( Math.sin(10 * mat[1][0] * vec.x + smallSine) + Math.sin(0.02 * vec.x)) + mat[1][1] * vec.y);
 }
 
 function createVectors(limit = 1) {
